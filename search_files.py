@@ -1,8 +1,13 @@
 import os
 import datetime
+import sys
 
 serialNumber ='8405'  #Вводим заводской номер тр-ра для поиска
 catalog = 'Z:\Протоколы\Протоколы Выезд' #Указываем папку поиска
+if not os.path.isdir(catalog):    #проверка доступности дириктории
+  print("Введен не правильный путь для поиска файлов.")
+  sys.exit() #остановка программы
+
 
 def timeOff(function_to_decorate): #функция декоратор для подсчета времени выполнения поиска.
     def obertka(a,b):
